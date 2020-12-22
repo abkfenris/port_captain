@@ -1,0 +1,34 @@
+platform:
+  name: NERACOOS A01
+  region: NERACOOS
+  maintainer:
+    organization: University of Maine
+    name: Bob Flemming
+    email: bfleming@umeoce.maine.edu
+  type: buoy
+
+  # Does there need to be dataset object for `things/UMaine/A01/met`?
+
+processing:
+- slug: umaine
+  meta:
+    platform: A01
+
+# University of Maine needs to do a lot of aggregation from
+# various transmission sources, before data can be appropriately
+# aggregated to continue through processing. Because of this
+# the exact further processing steps are unknown,
+# but here is an example of two
+
+# - topic: nmea # converts NMEA formatted CSV data into JSON
+#   meta:
+#     platform: A01
+# - topic: ioos_qc # runs IOOS QC with a config defined in the meta
+#   meta:
+#     fields:
+#       air_temperature:
+#         spike_test: true
+
+# The destination is an optional field, for when the desired end topic
+# of the source data is known before processing is started
+# destination: buoy/NERACOOS/A01/met/air_temperature

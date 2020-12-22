@@ -1,2 +1,4 @@
-numpy
-requests
+email-validator
+pydantic
+pydantic-yaml
+pyyaml
